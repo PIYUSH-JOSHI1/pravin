@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravin Ambekar - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            position: relative;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            font-size: 6rem;
+            overflow: hidden;
+        }
+
+        .header-text {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--light-color);
+        }
+
+        .contact-info i {
+            margin-right: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-links li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links li a:hover::after {
+            width: 70%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .skills-container {
+            flex: 1;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-item h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 8px;
+            height: 100%;
+            width: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: -2rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--secondary-color);
+            z-index: 1;
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .timeline-subtitle {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .job-roles {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+        .job-roles li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .year-percentage {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Activities Section */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .activity-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .activity-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Workshops Section */
+        .workshops-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .workshop-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .workshop-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .workshop-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            align-self: center;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        .contact-info-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details i {
+            min-width: 30px;
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links li {
+            margin: 0 0.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transition: var(--transition);
+            transform: translateY(20px);
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-img {
+                margin-bottom: 1.5rem;
+            }
+
+            .header-text {
+                padding-left: 0;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .skills-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                justify-content: space-between;
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                clip-path: circle(0% at 100% 0);
+                transition: clip-path 0.5s ease;
+            }
+
+            .nav-links.active {
+                clip-path: circle(150% at 100% 0);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .education-container,
+            .activities-grid,
+            .workshops-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="home">
+        <div class="header-content">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="header-text">
+                <h1>Pravin Ambekar</h1>
+                <h2>Psychologist & Counselor</h2>
+                <p>Studying cognitive, emotional, and social processes to help improve behaviors and processes</p>
+                <div class="contact-info">
+                    <a href="mailto:pravinambekar91@gmail.com"><i class="fas fa-envelope"></i> pravinambekar91@gmail.com</a>
+                    <a href="tel:+918149491825"><i class="fas fa-phone"></i> +91 8149491825</a>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Pune, India</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>As a dedicated Psychologist and Dr-TB Counselor, I bring extensive experience in mental health support and healthcare counseling. Currently working with the Tata Institute of Social Science under the Saksham project, I specialize in providing counseling services to Drug-Resistant TB patients, ensuring treatment adherence and psychological support.</p>
+                    <p>My approach combines professional expertise with compassion, helping individuals navigate health challenges while addressing their emotional and psychological needs. I'm committed to continuous learning and development in the field of psychology and social work to better serve my community.</p>
+                </div>
+                <div class="skills-container">
+                    <h3>Core Skills</h3>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-user-friends"></i> Counseling</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-brain"></i> Psychology</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-comments"></i> Communication</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-lightbulb"></i> Problem Solving</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-tasks"></i> Smart Working</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <h4><i class="fas fa-search"></i> Observation</h4>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Research Investigator</h3>
+                        <span class="timeline-date">Aug 2023 - Present</span>
+                    </div>
+                    <p class="timeline-subtitle">D.Y Patil Medical College, Pune</p>
+                    <p>Conducting research and investigations related to mental health and healthcare practices.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">Dr-TB Counselor</h3>
+                        <span class="timeline-date">Oct 2017 - Aug 2023</span>
+                    </div>
+                    <p class="timeline-subtitle">Tata Institute of Social Science (Saksham Project), Pune</p>
+                    <ul class="job-roles">
+                        <li>Registered Drug Resistant (DR) TB patients for counselling services and provided regular counselling to ensure treatment adherence</li>
+                        <li>Conducted regular home visits to DR TB patients within the district for follow-up counselling</li>
+                        <li>Provided counseling services to family members of DR TB patients and referred them for TB diagnosis when required</li>
+                        <li>Liaised with District TB staff to monitor treatment adherence of TB patients at community level</li>
+                        <li>Conducted group counseling for Drug Sensitive TB patients and follow-up counseling for vulnerable patients</li>
+                        <li>Improved TB-HIV linkages and coordinated with ART centers</li>
+                        <li>Linked DR TB patients to social protection schemes and other health services</li>
+                        <li>Maintained proper documentation and reporting as per program guidelines</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3 class="timeline-title">TB Aftermath Study</h3>
+                        <span class="timeline-date">2016 - 2017</span>
+                    </div>
+                    <p>Participated in research study examining the aftermath effects of TB on patients' physical and mental health.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3 class="degree">Master in Social Work (MSW)</h3>
+                    <p class="institution">Bharti Vidyapeeth, Pune</p>
+                    <div class="year-percentage">
+                        <span>2023 - 2024</span>
+                        <span>Pursuing</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="degree">Diploma in Psychological Counselling</h3>
+                    <p class="institution">Dr. B.A.M.U, Aurangabad</p>
+                    <div class="year-percentage">
+                        <span>2017</span>
+                        <span>73.9%</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="degree">Master in Psychology</h3>
+                    <p class="institution">Dr. B.A.M.U, Aurangabad</p>
+                    <div class="year-percentage">
+                        <span>2015</span>
+                        <span>51.5%</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="degree">Bachelor of Science (B.Sc)</h3>
+                    <p class="institution">Vivekanand College, Aurangabad</p>
+                    <div class="year-percentage">
+                        <span>2014</span>
+                        <span>60.56%</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="degree">D.T.Ed</h3>
+                    <p class="institution">Harinaik Adhyapak College, Mantha</p>
+                    <div class="year-percentage">
+                        <span>2012</span>
+                        <span>Pune University</span>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <h3 class="degree">Higher Secondary Certificate (HSC)</h3>
+                    <p class="institution">S.V. College, Mantha</p>
+                    <div class="year-percentage">
+                        <span>2008</span>
+                        <span>64.50%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="section">
+            <h2 class="section-title">Activities & Achievements</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <i class="fas fa-award"></i>
+                    <h3 class="activity-title">Master Trainer</h3>
+                    <p>Selected as Master Trainer at Tata Institute of Social Science, conducting counseling sessions for City T.B Officers, District T.B Officers, Medical officers, SDPs, and NTEP staff of Maharashtra at State Training Center Aundh Chest Hospital (STDC) Pune.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-medal"></i>
+                    <h3 class="activity-title">Sports Achievements</h3>
+                    <p>Participated in 27th Maharashtra State Senior Men & Women "TAEKWANDO CHAMPIONSHIP" and University Board of Physical Education and Sport's College competitions, winning Silver and Bronze medals.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3 class="activity-title">Awards & Recognition</h3>
+                    <ul>
+                        <li>Dr. Ambedkar Fellowship Rashtriya Sanman (2015)</li>
+                        <li>Mahatama Jyotiba Phule National Fellowship Award (2016)</li>
+                        <li>Samaj Bhushan Puraskar - ADARSH YUVA KRIDA RATNA (2016)</li>
+                    </ul>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3 class="activity-title">Community Outreach</h3>
+                    <p>Led nutritional support campaigns with local leaders in Pune slum areas and organized psychosocial support initiatives, including mental health awareness programs for general OPD patients at Corporation Hospital, Pune.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3 class="activity-title">COVID Response</h3>
+                    <p>Conducted telephonic counseling sessions during the COVID-19 pandemic, providing mental health support to individuals in isolation and distress.</p>
+                </div>
+                <div class="activity-card">
+                    <i class="fas fa-heart"></i>
+                    <h3 class="activity-title">Mental Health Programs</h3>
+                    <p>Designed and conducted anger and stress management programs for various organizations and community groups.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workshops Section -->
+        <section id="workshops" class="section">
+            <h2 class="section-title">Workshops & Training</h2>
+            <div class="workshops-list">
+                <div class="workshop-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Stress Management</h3>
+                    <p>Comprehensive workshop on understanding stress triggers and management techniques.</p>
+                </div>
+                <div class="workshop-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Application of Psychological Tests</h3>
+                    <p>Training on applying TAT, CAT, SCT, and RCPT in counseling situations (2018).</p>
+                </div>
+                <div class="workshop-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Mental Health Week</h3>
+                    <p>Participated in organizing awareness activities during Mental Health Week.</p>
+                </div>
+                <div class="workshop-item">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Learning Disability Workshop</h3>
+                    <p>Specialized training on DYSLEXIA and ADHD identification and support strategies.</p>
+                </div>
+                <div class="workshop-item">
+                    <i class="fas fa-hospital"></i>
+                    <h3>Physiotherapy Orientation</h3>
+                    <p>Orientation on Physiotherapies and Training of advanced eclectic Physiotherapy techniques.</p>
+                </div>
+                <div class="workshop-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Study Skills Program</h3>
+                    <p>Conducted programs to help students develop effective study techniques and academic strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info-card">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>pravinambekar91@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8149491825, +91 8669071956</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Current Address</h4>
+                                <p>500/3, Near Gurudatta Society, Dakshinmukhi Maruti, Shanivarpeth, Pune-411030</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-home"></i>
+                            <div>
+                                <h4>Permanent Address</h4>
+                                <p>Renuka Niwas, Near Godad aad, Ward No.2, At Post, Mantha, Jalna-431504</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <ul class="social-links">
+            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <p>&copy; 2025 Pravin Ambekar. All Rights Reserved.</p>
+    </footer>
+
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Scroll Animation for Sections
+        const sections = document.querySelectorAll('.section');
+        const backToTop = document.querySelector('.back-to-top');
+
+        function checkSections() {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerBottom) {
+                    section.classList.add('visible');
+                }
+            });
+
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Animate skill bars
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width + '%';
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+
+                // Form validation
+                let isValid = true;
+                for (const [key, value] of Object.entries(formObject)) {
+                    if (!value.trim()) {
+                        isValid = false;
+                        break;
+                    }
+                }
+
+                if (isValid) {
+                    // Show success message (in real world, would send to server)
+                    alert('Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    alert('Please fill in all fields.');
+                }
+            });
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            checkSections();
+            animateSkillBars();
+        });
+
+        window.addEventListener('scroll', checkSections);
+    </script>
+</body>
+</html>
